@@ -12,7 +12,9 @@ public class App {
     public static void main(String[] args) {
         // Créer une file partagée pour communiquer entre Monitor et Analyzer
         BlockingQueue<Double> dataQueue1 = new LinkedBlockingQueue<>();
+        // Créer une file partagée pour communiquer entre Analyzer et Planner
         BlockingQueue<Double> dataQueue2 = new LinkedBlockingQueue<>();
+        // Créer une file partagée pour communiquer entre Planner et Executor
         BlockingQueue<String> dataQueue3 = new LinkedBlockingQueue<>();
 
         // Créer une instance de Monitor et démarrer la surveillance
