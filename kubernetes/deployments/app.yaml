@@ -1,0 +1,19 @@
+# Deployment Server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdci-app
+spec:
+  selector:
+    matchLabels:
+      app: sdci-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdci-app
+    spec:
+      containers:
+      - name: sdci-app-container
+        image: mathis05000/sdci-app:latest
+        imagePullPolicy: IfNotPresent

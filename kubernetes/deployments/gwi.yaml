@@ -1,0 +1,21 @@
+# Deployment Server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdci-gwi
+spec:
+  selector:
+    matchLabels:
+      app: sdci-gwi
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdci-gwi
+    spec:
+      containers:
+      - name: sdci-gwi-container
+        image: mathis05000/sdci-gwi:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

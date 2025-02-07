@@ -1,0 +1,24 @@
+# Deployment Server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdci-gwf1
+spec:
+  selector:
+    matchLabels:
+      app: sdci-gwf1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdci-gwf1
+    spec:
+      containers:
+      - name: sdci-gwf1-container
+        image: mathis05000/sdci-gwf:latest
+        imagePullPolicy: Always
+        env:
+        - name: GW_NAME
+          value: "gwf1"
+        - name: DEVICE_NAME
+          value: "dev1"
